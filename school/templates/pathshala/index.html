@@ -1,0 +1,49 @@
+{% extends 'pathshala/base.html' %}
+
+{% load myfilter %}
+
+{% block title %}
+about    
+{% endblock title %}
+
+{{studlist}}
+
+{% block body %}
+    
+
+<h3>Totel student in the calss is {{ studlist|length }} </h3>
+
+
+
+<table border="1 " width="70%" >
+    <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Student DOB</th>
+        <th>Student Admission Date</th>
+        <th>Student Age</th>
+        <th>Action</th>
+    </tr>
+    
+    {% if studlist|length > 0  %}
+    {% for stud in studlist %}
+        <tr>
+            <td>{{stud.studid}}</td>
+            <td>{{stud.studname}}</td>
+            <td>{{stud.studDOB|date}}</td>
+            <td>{{stud.studAddDate|date:'d-m-Y'}}</td>
+            <td>{{stud.studDOB|studage}}</td>
+            <td>
+                <a href="/delete/{{stud.studid}}"><input type="submit" value="Delete"></a>
+                <a href="/update/{{stud.studid}}"><input type="submit" value="Update"></a>
+            </td>
+
+        </tr>
+    {% endfor %}
+    {% else %}
+    <h2>ther is no student in the class.... calss is emty...</h2>        
+    {% endif %}        
+</table>
+
+{% endblock body %}
+    

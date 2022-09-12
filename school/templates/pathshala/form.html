@@ -1,0 +1,48 @@
+{% extends 'pathshala/base.html' %}
+
+
+{% block title %}
+ form    
+{% endblock title %}
+
+
+{% block body %}
+
+    <div class="confirmbox">
+
+        <form action="" method="post" class="form1">
+            {% csrf_token %}
+
+
+            <label for="studid">student ID : </label>
+            <input type="text" name="studid" id="studid" value="{{stud.studid}}" >
+            <br>
+
+            <label for="studname">student Full Name : </label>
+            <input type="text" name="studname" id="studname" value="{{stud.studname}}" >
+            <br>
+
+            <label for="studDOB">student Date OF Birth : </label>
+            <input type="text" name="studDOB" id="studDOB" value="{{stud.studDOB|date:'d-m-Y'}}" >
+            <br>
+
+            <label for="studAddDate">student Admition Date : </label>
+            <input type="text" name="studAddDate" id="studAddDate" value="{{stud.studAddDate|date:'d-m-Y'}}" >
+            <br>
+            <br>
+
+            <center>
+                <input type="submit" value="save">
+            </center>
+
+        </form>
+        <center>
+        <a href="/index"><input type="submit" value="BACK"></a>
+
+        </center>
+        
+        
+    </div>    
+
+    {% endblock body %}
+    

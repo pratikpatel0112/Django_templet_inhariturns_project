@@ -1,0 +1,19 @@
+{% extends 'pathshala/base.html' %}
+
+{% load myfilter %}
+{% block title %}
+    confirm   
+{% endblock title %}
+    
+
+{% block body %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>Are you sure do you want to Delete {{stud.studname}} </h1>
+            <input type="submit" value="yes">
+    </form>
+<br>
+    <a href="/index"><input type="submit" value="NO"></a>
+{% endblock body %}
+    
